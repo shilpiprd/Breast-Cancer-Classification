@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Breast Cancer Classification</title>
+</head>
+<body>
+    <h1>Breast Cancer Classification</h1>
+    {% if result %}
+        <p>Result: {{ result }}</p>
+    {% endif %}
+
+    <!-- Form to upload image -->
+    <form method="post" action="/predict" enctype="multipart/form-data">
+        <label for="imageUpload">Upload an image:</label><br>
+        <input type="file" name="image" id="imageUpload" required><br><br>
+
+        <input type="submit" value="Classify Image">
+    </form>
+</body>
+</html>
+
