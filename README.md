@@ -15,3 +15,8 @@
 - To deal with this problem, I tried several combinations of class weighting, oversampling, callbacks, modification in the model architecutre and eventually achieved a good tradeoff between precision and recall.
 - Initial input images had shape 229x229, but for training the images were reduced to 100x100 shape and to standardize them, they were modified to have 3 channels by replicating the grayscale values. 
 
+### Images of Web Interface: 
+<p float="left">
+  <img src="test_images/OP2.png" width="700" length="310" />
+  <img src="test_images/OP1.png" width="700" length="310" />
+</p>

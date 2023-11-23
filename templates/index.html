@@ -1,21 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Breast Cancer Classification</title>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-box {
+            text-align: center;
+            margin: 5px;
+        }
+        .arrow {
+            font-size: 24px;
+            margin: 0 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Breast Cancer Classification</h1>
-    {% if result %}
-        <p>Result: {{ result }}</p>
+    <div class="image-container">
+        {% for img in img_info %}
+            <div class="image-box">
+                <img src="{{ url_for('static', filename=img.filename) }}" alt="Image" style="max-width:100px;">
+                <p>{{ img.prediction }}</p>
+            </div>
+            {% if loop.index == 1 %}
+                <div class="arrow">→</div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if final_result %}
+        <p>Final Result: {{ final_result }}</p>
     {% endif %}
 
     <!-- Form to upload image -->
     <form method="post" action="/predict" enctype="multipart/form-data">
         <label for="imageUpload">Upload an image:</label><br>
         <input type="file" name="image" id="imageUpload" required><br><br>
-
         <input type="submit" value="Classify Image">
     </form>
 </body>
 </html>
-
